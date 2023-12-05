@@ -1,0 +1,71 @@
+import React from 'react'
+// import logo from './logo.svg'
+import type { MouseEvent } from 'react'
+import './App.css'
+
+function App() {
+  // const app = '2333'
+  const fn = (event: MouseEvent<HTMLButtonElement>, name: string) => {
+    event.preventDefault()
+    console.log(name)
+  }
+
+  const flag = true
+
+  const list = [
+    {
+      username: 'zhangjiwang',
+      name: '张基旺',
+    },
+    {
+      username: 'zhangsan',
+      name: '张三',
+    },
+    {
+      username: 'lisi',
+      name: '李四',
+    },
+  ]
+  function Hello() {
+    if (flag) return <p>Hello</p>
+    return <p>你好1</p>
+  }
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
+        {/*js的注释内容*/}
+        {/*  */}
+        {/* 尽量不要使用index作为唯一值 */}
+        <div>
+          <ul>
+            {list.map(user => {
+              const { username, name } = user
+              return <li key={username}>{name}</li>
+            })}
+          </ul>
+        </div>
+        <Hello></Hello>
+        <button
+          onClick={evnet => {
+            fn(evnet, 'zjw')
+          }}
+        >
+          点击
+        </button>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: 'red', backgroundColor: 'withe' }}
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  )
+}
+
+export default App

@@ -1,7 +1,6 @@
 import React from 'react'
 // import logo from './logo.svg'
 import type { MouseEvent } from 'react'
-import './App.css'
 
 function App() {
   // const app = '2333'

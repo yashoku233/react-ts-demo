@@ -1,11 +1,15 @@
 import React from 'react'
 // import logo from './logo.svg'
-import List1 from './list1'
+// import List1 from './list1'
+// import Demo from './stateDemo2'
+import List2 from './list2'
 
 function App() {
   return (
     <>
-      <List1 />
+      <div>
+        <List2 />
+      </div>
     </>
   )
 }

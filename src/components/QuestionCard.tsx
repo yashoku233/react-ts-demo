@@ -10,15 +10,17 @@ type propType = {
 }
 
 const QuestionCard: FC<propType> = prop => {
-  function edit(id: string) {
-    console.log('edit', id)
-  }
-  const { title, id, ispublished, deleteQuestion } = prop
+  const { title, id, ispublished, deleteQuestion, publishQuestion } = prop
   console.log(prop, 'prop')
 
   function del(id: string) {
     // 添加&&表示如果有值就更新 没有就不更新
-    deleteQuestion && deleteQuestion(id)
+    // deleteQuestion && deleteQuestion(id)
+    deleteQuestion?.(id)
+  }
+
+  function publish(id: string) {
+    publishQuestion?.(id)
   }
 
   return (
@@ -29,10 +31,10 @@ const QuestionCard: FC<propType> = prop => {
       &nbsp;
       <button
         onClick={() => {
-          edit(id)
+          publish(id)
         }}
       >
-        编辑问卷
+        发布问卷
       </button>
       <button
         onClick={() => {

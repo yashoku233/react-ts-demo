@@ -1,8 +1,14 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import { produce } from 'immer'
 import QuestionCard from './components/QuestionCard'
 
 const List2: FC = () => {
+  const [conut, setcount] = useState(0)
+
+  useEffect(() => {
+    console.log(`count is ${conut}`)
+  }, [conut])
+
   const [questionList, setQuestionList] = useState([
     {
       id: 'q1',
@@ -43,6 +49,7 @@ const List2: FC = () => {
         })
       })
     )
+    setcount(conut + 1)
   }
 
   function deleteQuestion1(id: string) {

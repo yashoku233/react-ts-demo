@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import './questionCard.css'
 
 type propType = {
@@ -22,7 +22,12 @@ const QuestionCard: FC<propType> = prop => {
   function publish(id: string) {
     publishQuestion?.(id)
   }
-
+  // 销毁的useEffect的
+  useEffect(() => {
+    return () => {
+      console.log('删除一个组件', id)
+    }
+  }, [])
   return (
     <div key={id} className="list-item">
       <strong> {title}</strong>

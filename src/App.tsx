@@ -7,12 +7,17 @@ import React from 'react'
 // import Demo from './useRefDemo'
 // import UseMemoDemo from './useMemo'
 // import UseCallbackDemo from './useCallbackDemo'
-import useTitle from './hooks/useTitle'
+// import useTitle from './hooks/useTitle'
+import useMouse from './hooks/useMouse'
 
 function App() {
-  useTitle('2333')
+  // useTitle('2333')
+  const { x, y } = useMouse()
   return (
     <>
+      <p>
+        {x} &nbsp; {y}
+      </p>
       <div>{/* <UseCallbackDemo /> */}</div>
     </>
   )

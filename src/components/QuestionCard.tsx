@@ -1,5 +1,6 @@
-import React, { FC, useEffect } from 'react'
-import './questionCard.css'
+import React, { FC } from 'react'
+// import './questionCard.css'
+import style from './questionCard.module.scss'
 
 type propType = {
   id: string
@@ -11,7 +12,7 @@ type propType = {
 
 const QuestionCard: FC<propType> = prop => {
   const { title, id, ispublished, deleteQuestion, publishQuestion } = prop
-  console.log(prop, 'prop')
+  // console.log(prop, 'prop')
 
   function del(id: string) {
     // 添加&&表示如果有值就更新 没有就不更新
@@ -23,16 +24,18 @@ const QuestionCard: FC<propType> = prop => {
     publishQuestion?.(id)
   }
   // 销毁的useEffect的
-  useEffect(() => {
-    return () => {
-      console.log('删除一个组件', id)
-    }
-  }, [])
+  // useEffect(() => {
+  //   return () => {
+  //     console.log('删除一个组件', id)
+  //   }
+  // }, [])
+  // let classPulic = 'list-item'
+  // if (ispublished) classPulic += ' published'
   return (
-    <div key={id} className="list-item">
+    <div key={id} className={style['list-item']}>
       <strong> {title}</strong>
       &nbsp;
-      {ispublished ? <span style={{ color: 'green' }}>已发布</span> : <span>未发布</span>}
+      {ispublished ? <span className={style['published-span']}>已发布</span> : <span>未发布</span>}
       &nbsp;
       <button
         onClick={() => {

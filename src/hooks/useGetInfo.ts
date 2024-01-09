@@ -11,7 +11,12 @@ function getInfo(): Promise<string> {
 const useGetInfo = () => {
   const [loading, setLoading] = useState(true)
   const [info, setInfo] = useState('')
-
+  useEffect(() => {
+    getInfo().then(info => {
+      setLoading(false)
+      setInfo(info)
+    })
+  }, [])
   return { loading, info }
 }
 

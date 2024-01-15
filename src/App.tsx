@@ -2,7 +2,7 @@ import React from 'react'
 // import logo from './logo.svg'
 // import List1 from './list1'
 // import Demo from './stateDemo2'
-import List2 from './list2'
+// import List2 from './list2'
 // import Demo from './immer'
 // import Demo from './useRefDemo'
 // import UseMemoDemo from './useMemo'
@@ -10,6 +10,7 @@ import List2 from './list2'
 // import useTitle from './hooks/useTitle'
 // import useMouse from './hooks/useMouse'
 // import useGetInfo from './hooks/useGetInfo'
+import StyledCompoentsDemo from './StyledComponentsDemo'
 
 function App() {
   // useTitle('2333')
@@ -21,7 +22,8 @@ function App() {
         {x} &nbsp; {y}
       </p> */}
       {/* <div>{loading ? '加载中' : info}</div> */}
-      <List2 />
+      {/* <List2 /> */}
+      <StyledCompoentsDemo />
     </>
   )
 }

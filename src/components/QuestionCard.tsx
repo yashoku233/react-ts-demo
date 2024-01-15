@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 // import './questionCard.css'
-import style from './questionCard.module.scss'
+import classnames from 'classnames'
+import styles from './questionCard.module.scss'
 
 type propType = {
   id: string
@@ -31,11 +32,23 @@ const QuestionCard: FC<propType> = prop => {
   // }, [])
   // let classPulic = 'list-item'
   // if (ispublished) classPulic += ' published'
+
+  // const itemclassName = classnames({
+  //   'list-item': true,
+  //   published: ispublished,
+  // })
+  const listItemClass = styles['list-item']
+  const publishedClass = styles.published
+  const itemClassName = classnames({
+    [listItemClass]: true,
+    [publishedClass]: ispublished,
+  })
+  // console.log(itemClassName, 'itemClassName')
   return (
-    <div key={id} className={style['list-item']}>
+    <div key={id} className={itemClassName}>
       <strong> {title}</strong>
       &nbsp;
-      {ispublished ? <span className={style['published-span']}>已发布</span> : <span>未发布</span>}
+      {ispublished ? <span className={styles['published-span']}>已发布</span> : <span>未发布</span>}
       &nbsp;
       <button
         onClick={() => {
